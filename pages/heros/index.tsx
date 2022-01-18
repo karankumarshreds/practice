@@ -1,19 +1,12 @@
 import React from 'react';
-import { Keys } from '../../keys';
-import { useQuery, UseQueryResult } from 'react-query';
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import { Keys } from 'keys';
+import { getHeroes } from 'queries';
 
-interface Node {
-  id: number;
-  name: string;
-  alterEgo: string;
-}
+import { useQuery, UseQueryResult } from 'react-query';
 
 export default function () {
   const [counter, setCounter] = React.useState(0);
-  const { data, isLoading } = useQuery(Keys.fetch_heroes, () => {
-    return axios.get('http://localhost:4000/superheroes') as Promise<UseQueryResult<Node[]>>;
-  });
+  const { data, isLoading } = useQuery(Keys.fetch_heroes, getHeroes);
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
