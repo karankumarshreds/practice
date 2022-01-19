@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { IHero } from 'interfaces';
 import { UseQueryResult } from 'react-query';
 
@@ -7,6 +7,6 @@ const api = axios.create({
   withCredentials: true,
 });
 
-export const getHeroes = () => api.get('/superheroes') as Promise<UseQueryResult<IHero[]>>;
+export const getHeroes = () => api.get('/superheros') as Promise<IHero[]>;
 
 export default api;
