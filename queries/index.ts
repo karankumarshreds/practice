@@ -7,6 +7,6 @@ const api = axios.create({
   withCredentials: true,
 });
 
-export const getHeroes = () => api.get('/superheros') as Promise<IHero[]>;
+export const getHeroes = () => api.get('/superheroes') as Promise<UseQueryResult<IHero[]>>;
 
 export default api;

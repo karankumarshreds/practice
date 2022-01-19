@@ -13,7 +13,7 @@ export default function () {
   return (
     <div>
       <button onClick={() => setCounter(counter + 1)}>Count</button>
-      <ul>{data && data.map((each) => <li key={each.id}>{each.name}</li>)}</ul>
+      <ul>{data && data.data && data.data.map((each) => <li key={each.id}>{each.name}</li>)}</ul>
     </div>
   );
 }
